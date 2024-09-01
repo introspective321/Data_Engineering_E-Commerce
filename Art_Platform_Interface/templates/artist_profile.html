@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>{{ artist.username }}'s Profile</h1>
+        <p>Biography: {{ artist.biography }}</p>
+        <p>Portfolio: <a href="{{ artist.portfolio_url }}" target="_blank">View Portfolio</a></p>
+        <a href="{{ url_for('add_artwork') }}" class="btn btn-primary">Add Artwork</a>
+        <a href="{{ url_for('view_artworks', artist_id=artist.artist_id) }}" class="btn btn-secondary">View My Artworks</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="welcome-container">
+    <h1>Welcome to Art Platform</h1>
+    <div class="button-container">
+        <a href="{{ url_for('browse_artwork') }}" class="button">Browse Artworks</a>
+        <a href="{{ url_for('login') }}" class="button">Login</a>
+        <a href="{{ url_for('register') }}" class="button">Register</a>
+    </div>
+</div>
+{% endblock %}
+

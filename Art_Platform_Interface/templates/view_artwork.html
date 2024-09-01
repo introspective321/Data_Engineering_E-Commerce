@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ artwork.title }}</h2>
+<div class="artwork-details">
+    <img src="{{ url_for('static', filename='images/' + artwork.image_url) }}" alt="{{ artwork.title }}">
+    <p>{{ artwork.description }}</p>
+    <p>Price: ${{ artwork.price }}</p>
+    <p>Medium: {{ artwork.medium }}</p>
+    <p>Style: {{ artwork.style }}</p>
+    <a href="{{ url_for('rate_artwork', artwork_id=artwork.artwork_id) }}" class="btn btn-secondary">Rate This Artwork</a>
+    <a href="#" class="btn btn-primary">Add to Cart</a>
+</div>
+{% endblock %}
