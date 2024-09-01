@@ -52,4 +52,4 @@ To get started with this project, clone the repository and install the necessary
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Data_Engineering_E-Commerce.git
+   git clone https://github.com/root/Data_Engineering_E-Commerce.git
