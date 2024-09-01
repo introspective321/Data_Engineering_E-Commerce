@@ -1,36 +1,57 @@
-def custom_hash_function(key, num_buckets):
-    
-    """
-    Custom hash function for the 'Artwork Listings' table.
-    
-    Parameters:
-    key (str): The key to hash, typically a unique identifier for artwork.
-    num_buckets (int): The number of hash buckets to distribute data.
-    
-    Returns:
-    int: The index of the bucket where the data should be stored.
-    """
-    # Define common alphabets from the roll numbers
-    common_alphabets = "BAI"
+class HashTable:
+    def __init__(self, num_buckets):
+        self.num_buckets = num_buckets
+        self.table = [None] * num_buckets
 
-    # Initialize hash value
-    hash_value = 0
+    def custom_hash_function(self, key):
+        common_alphabets = "BAI"
+        hash_value = 0
+        for char in key:
+            if char in common_alphabets:
+                hash_value = (hash_value * 31 + ord(char)) % self.num_buckets
+            else:
+                hash_value = (hash_value * 37 + ord(char)) % self.num_buckets
+        return hash_value
 
-    # Process each character in the key
-    for char in key:
-        if char in common_alphabets:
-            # Simple hash calculation considering common alphabets
-            hash_value = (hash_value * 31 + ord(char)) % num_buckets
-        else:
-            # Hash calculation for other characters
-            hash_value = (hash_value * 37 + ord(char)) % num_buckets
+    def insert(self, key, value):
+        index = self.custom_hash_function(key)
+        start_index = index
+        while self.table[index] is not None and self.table[index][0] != key:
+            index = (index + 1) % self.num_buckets
+            if index == start_index:
+                raise Exception("Hash table is full")
+        self.table[index] = (key, value)
 
-    return hash_value
+    def search(self, key):
+        index = self.custom_hash_function(key)
+        start_index = index
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                return self.table[index][1]
+            index = (index + 1) % self.num_buckets
+            if index == start_index:
+                return None
+        return None
 
-# Example usage
-num_buckets = 10  # Number of hash buckets
+# Create a hash table with 10 buckets
+hash_table = HashTable(10)
+
+# Insert some key-value pairs
+hash_table.insert('Artwork1', 'Painting')
+hash_table.insert('Artwork15', 'Sculpture')
+hash_table.insert('Artwork3', 'Drawing')
+
 keys = ['Artwork1', 'Artwork15', 'Artwork3']
-
 for key in keys:
-    bucket = custom_hash_function(key, num_buckets)
+    bucket = hash_table.custom_hash_function(key)
     print(f"Key: {key} is mapped to bucket: {bucket}")
+
+# Search for keys
+print(hash_table.search('Artwork1'))  # Output: Painting
+print(hash_table.search('Artwork15')) # Output: Sculpture
+print(hash_table.search('Artwork2'))  # Output: None (not found)
+
+
+
+
+
