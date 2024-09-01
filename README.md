@@ -44,6 +44,8 @@ This project involves designing and implementing a database for an e-commerce pl
 - **Description:** Remove all artwork purchases made after 7PM on August 15, 2024.
 - **File Reference:** [remove.py](db/report.py)
 
+## SQL Database File
+
 ### Overview
 - **File Name:** `art_platform.sql`
 - **Description:** This file contains the SQL dump of the database used in this project.
