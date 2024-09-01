@@ -18,7 +18,7 @@ This project involves designing and implementing a database for an e-commerce pl
 
 ### Task 3: Normalization
 - **Description:** Ensure that all tables are in 3NF (Third Normal Form).
-- **File Reference:** LabReport.pdf
+- **File Reference:** [LabReport.pdf](LabReport.pdf)
 
 ### Task 4 & 5: Custom Hash Function
 - **Description:** Implement a custom hash function for hashing passwords and artwork names.
