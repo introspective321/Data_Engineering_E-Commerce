@@ -8,7 +8,7 @@ This project involves designing and implementing a database for an e-commerce pl
 
 ### Task 1: ER Diagram
 - **Description:** Design the Entity-Relationship Diagram (ERD) for the e-commerce platform.
-- **File Reference:** ER_Diagram.pdf
+- **File Reference:** [ER_Diagram.png](ER_Diagram.png)
 
 ### Task 2: Table Creation and Insertion of Dummy Values
 - **Description:** Create tables and insert dummy values into the database.
