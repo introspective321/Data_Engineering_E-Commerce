@@ -21,7 +21,7 @@ INSERT INTO User (username, password, email, role) VALUES
 ('contemporary_artist5', 'password9', 'contemporary5@example.com', 'Artist');
 """
 
-# Execute the query
+# Executing the query
 cursor.execute(add_artists_query)
 conn.commit()
 
