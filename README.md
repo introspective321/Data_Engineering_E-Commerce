@@ -43,7 +43,7 @@ This project involves designing and implementing a database for an e-commerce pl
 
 ### Task 11: Remove Artwork Purchases
 - **Description:** Remove all artwork purchases made after 7PM on August 15, 2024.
-- **File Reference:** [remove.py](remove.py)
+- **File Reference:** [remove.py](db/report.py)
 
 ## Getting Started
 
