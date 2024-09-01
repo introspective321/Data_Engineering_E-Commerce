@@ -1,5 +1,3 @@
-
-# Define the content of the README file
 readme_content = """
 # Data_Engineering_E-Commerce
 **Assignment-1**
