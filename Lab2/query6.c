@@ -21,17 +21,17 @@ int main() {
     }
 
     // Send SQL query
-    if (mysql_query(conn, "SELECT a.* FROM Artist a LEFT JOIN Artwork aw ON a.artist_id = aw.artist_id WHERE aw.artwork_id IS NULL;")) {
+    if (mysql_query(conn, "SELECT u.username FROM User u LEFT JOIN `Order` o ON u.user_id = o.buyer_id WHERE o.order_id IS NULL;")) {
         fprintf(stderr, "%s\n", mysql_error(conn));
         exit(1);
     }
 
     res = mysql_use_result(conn);
 
-    // Output artist names
-    printf("Artists without artwork:\n");
+    // Output usernames
+    printf("Users with no purchases:\n");
     while ((row = mysql_fetch_row(res)) != NULL)
-        printf("Artist Name: %s\n", row[1]); // assuming name is second column
+        printf("Username: %s\n", row[0]);
 
     // Close connection
     mysql_free_result(res);
