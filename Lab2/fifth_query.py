@@ -10,15 +10,14 @@ def get_artists_oil_paintings_2022():
     cursor = conn.cursor(dictionary=True)
 
     query = """
-    SELECT DISTINCT a.*
+     SELECT DISTINCT a.*
     FROM Artist a
     JOIN Artwork aw ON a.artist_id = aw.artist_id
     JOIN OrderItem oi ON aw.artwork_id = oi.artwork_id
     JOIN `Order` o ON oi.order_id = o.order_id
-    WHERE aw.medium = 'Oil Painting'
+    WHERE aw.category = 'Oil Painting'
     AND YEAR(o.order_date) = 2022;
     """
-
     cursor.execute(query)
     results = cursor.fetchall()
 
@@ -31,6 +30,6 @@ def get_artists_oil_paintings_2022():
 artists = get_artists_oil_paintings_2022()
 for artist in artists:
     print(f"Artist: {artist['artist_name']}")
-    print(f"Biography: {artist['biography']}")
-    print(f"Portfolio URL: {artist['portfolio_url']}")
+  #  print(f"Biography: {artist['biography']}")
+ #   print(f"Portfolio URL: {artist['portfolio_url']}")
     print("---")

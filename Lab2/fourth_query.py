@@ -15,7 +15,7 @@ def get_buyers_oil_paintings_2022():
     JOIN `Order` o ON u.user_id = o.buyer_id
     JOIN OrderItem oi ON o.order_id = oi.order_id
     JOIN Artwork aw ON oi.artwork_id = aw.artwork_id
-    WHERE aw.medium = 'Oil Painting'
+    WHERE aw.category = 'Oil Painting'
     AND YEAR(o.order_date) = 2022;
     """
 
